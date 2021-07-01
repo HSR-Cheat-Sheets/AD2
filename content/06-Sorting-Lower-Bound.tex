@@ -1,0 +1,38 @@
+\section{Sorting Lower Bound}
+
+\subsection{Definition}
+\begin{itemize}
+    \item Viele Sortier-Algoritmen sind vergleichsbasiert
+    \item soll eine untere Grenze (Lower Bound) der Laufzeit hergeleitet werden für alle Algorithmen, welche Vergleiche benutzen um n Elemente $x_1, x_2, ..., x_n$ zu sortieren.
+\end{itemize}
+
+\subsection{Laufzeit}
+\begin{itemize}
+    \item Jeder Vergleichs-basierte Sortier-Algorithmus hat eine minimale Laufzeit von: log (n!)
+    \item Jeder solch Algorithmus hat somit eine Laufzeit von
+    mindestens (gem. Starling-Annäherung): O(n log(n))
+\end{itemize}
+
+\subsection{Zählen der Vergleiche}
+\begin{itemize}
+    \item zählen die Anzahl der Vergleiche
+    \item Jeder mögliche Durchgang des Algorithmus korrespondiert mit einem Wurzel-zu-Blatt Pfad ein einem Entscheidungs-Baum
+\end{itemize}
+
+
+\subsection{Höhe des Entscheidungs-Baumes}
+\begin{itemize}
+    \item Höhe des Entscheidungs-Baumes entspricht der unteren Grenze der Laufzeit
+    \item Jede mögliche Input-Permutation führt zu einem anderen Pfad
+    \begin{itemize}
+        \item wenn dies nicht so wäre, hätte ein Input ...4...5... die selbe Ausgangs-Ordnung wie ...5...4...(was falsch wäre)
+    \end{itemize}
+    \item Da n!=1*2*...*n Blätter vorhanden sind, beträgt die Höhe mindestens log(n!)
+\end{itemize}
+\vspace{-8pt}
+\begin{center}
+    \includegraphics[scale=.2]{graphic/06 SortingLowerBound/höhe.png}
+\end{center}
+\vspace{-8pt}
+
+\newpage

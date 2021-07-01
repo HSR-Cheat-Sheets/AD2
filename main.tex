@@ -1,0 +1,44 @@
+%import template
+\input{./styles/template.tex}
+
+% DocInfo
+\newcommand{\SUBJECT}{}
+\newcommand{\TITLE}{Cheat Sheet Algorithmen und Datenstrukturen 2}
+
+\begin{document}
+
+%import front page
+% \input{./front.tex}
+
+%do multicols
+\begin{multicols*}{4}
+    \setlength{\columnseprule}{0.4pt}
+		\footnotesize
+		
+%import tableofcontents
+% \input{./tableofcontents.tex}
+
+    \input{./content/01-Binary-Search-Tree.tex}
+    \input{./content/02-AVL-Trees.tex}
+    \input{./content/03-Splay-Trees.tex}
+    \input{./content/04-Merge-Sort.tex}
+    \input{./content/05-Quick-Sort.tex}
+    \input{./content/06-Sorting-Lower-Bound.tex}
+    \input{./content/07-Radix-Sort.tex}
+    \input{./content/08-Pattern-Matching.tex}
+    \input{./content/09-Tries.tex}
+    \input{./content/10-Dynamic-Programming.tex}
+    \input{./content/11-Graph.tex}  
+    \input{./content/12-DFS.tex}
+    \input{./content/13-BFS.tex}
+    \input{./content/14-Digraphs.tex}
+    \input{./content/15-Shortest-Path-Trees.tex}
+    \input{./content/16-Minimum-Spanning-Trees.tex}
+
+    
+
+\end{multicols*}
+
+% \input{./appendix.tex}
+
+\end{document}
