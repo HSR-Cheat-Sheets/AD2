@@ -190,9 +190,25 @@ Beispiel: remove(3)
 \begin{center}
     \includegraphics[scale=.22]{graphic/01 BinarySearchTrees/inorder().png}
 \end{center}
-\vspace{-8pt}
 
 
+\paragraph{Laufzeit}
+Sortieren von Zahlen durch einfügen in binären Suchbaum und anschliessend durch INORDER-TREE-WALK sortiert ausgeben:\\
 
+\textbf{Worst-Case (1,2,3,4,5,6, ...,n)}\\
+Für Element x auch x Schritte für einfügen:\\
+$\sum_{i=1}^{n} i=\frac{n(n+1)}{2}$\\
+Laufzeit $O(n^2)$\\
 
+\textbf{Best-Case (vollständiger Binärbaum entsteht)}\\
+Für Element x nur $log_2$ (x) Schritte für einfügen:\\
+$\sum_{i=1}^{n}\left\lfloor\log _{2}(i)\right\rfloor \leq \sum_{i=1}^{n} \log _{2}(i)$\\
+Laufzeit $O(n$ $log_2 (n))$\\
+
+\textbf{Auslesen)}\\
+Das Auslesen aus dem Binärbaum erfolgt in beiden Fällen mit Inorder-Tree-Walk:\\
+Laufzeit $O(n)$\\
+
+\textbf{Total)}\\
+Totale Laufzeit nicht abhängig von Auslesen, da  $O(n^2)$ und $O(n$ $log_2 (n))$ höher sind als $O(n)$. 
 \newpage
