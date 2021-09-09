@@ -154,4 +154,65 @@ Ein Graph ist ein Paar (V, E), wobei:
 \end{center}
 \vspace{-8pt}
 
+\vfill
+$ $
+\columnbreak
+
+\paragraph{Graph Implementation}
+
+\begin{lstlisting}
+public class KantenListenGraph {
+    private DoubleLinkedPosition<Vertex> vSeqHead;
+    private DoubleLinkedPosition<Edge> eSeqHead;
+    
+    public Vertex insertVertex(Object o) {
+        vSeqHead = new DoubleLinkedPosition<Vertex>(vSeqHead);
+        Vertex vertex = new Vertex(o, vSeqHead);
+        return vertex;
+    }
+    
+    public Edge insertEdge(Vertex v, Vertex w, Object o) {
+        Vertex[] endVertices = {v, w};
+        eSeqHead = new DoubleLinkedPosition<Edge>(eSeqHead);
+        Edge edge = new Edge(o, endVertices, eSeqHead);
+        return edge;
+    }
+
+public class Vertex {
+    private Object object;
+    protected DoubleLinkedPosition<Vertex> position;
+    
+    public Vertex(Object o, DoubleLinkedPosition<Vertex> position) {
+        this.object = o;
+        this.position = position;
+        position.element = this;
+  }
+
+public class Edge {
+    private Object object;
+    private Vertex[] vertices;
+    protected DoubleLinkedPosition<Edge> position;
+    
+    public Edge(Object o, Vertex[] vertices, DoubleLinkedPosition<Edge> position) {
+        this.object = o;
+        this.vertices = vertices;
+        this.position = position;
+        position.element = this;
+}
+
+public class DoubleLinkedPosition<E> {
+    protected DoubleLinkedPosition<E> previous;
+    protected DoubleLinkedPosition<E> next;
+    protected E element;
+    
+    DoubleLinkedPosition(DoubleLinkedPosition<E> next) {
+        this.next = next;
+        if (next != null) {
+            next.previous = this;
+        }
+    }
+}
+\end{lstlisting}
+
+
 \newpage

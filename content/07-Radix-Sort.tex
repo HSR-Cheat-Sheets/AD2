@@ -40,6 +40,11 @@
 \end{itemize}
 
 
+\vfill
+$ $
+\columnbreak
+
+
 \section{Lexikographische Sortierung}
 \subsection{Definition}
 \begin{itemize}
@@ -65,11 +70,28 @@
     \item Lexikographische-Sortierung sortiert eine Sequenz von d- Tupeln in lexikographischer Ordnung, indem d-mal stableSort, je einmal pro Dimension, durchgeführt wird
     \item Lexikographische-Sortierung läuft in O(d*T(n)) Zeit, wobei T(n) die Laufzeit von stableSort ist
 \end{itemize}
-\vspace{-8pt}
+
+
+\paragraph{Anwendung}
+\begin{enumerate}
+    \item Anzahl Buchstaben pro Klammer Zählen (hier 3)
+    \item beginnend bei i = 3 [jeweils letzter Buchstabe]
+    \item sortierung der Klammern nach Klammer[i]
+    \item i - 1
+    \item wiederholen bis i = 1
+\end{enumerate}
 \begin{center}
-    \includegraphics[scale=.22]{graphic/07 RadixSort/lexi.png}
+    Beispiel 1:\\
+    \includegraphics[scale=.3]{graphic/07 RadixSort/lexi.png}\\
+    \vspace{6pt}
+    Beispiel 2:\\
+    \includegraphics[scale=.19]{graphic/07 RadixSort/probepruefung_lexi.png}
 \end{center}
-\vspace{-8pt}
+
+
+\vfill
+$ $
+\columnbreak
 
 
 \section{Radix Sort}
@@ -100,6 +122,7 @@
 \vspace{-8pt}
 
 %TODO alles nochmals schnell durchschauen, ob alles am richtigen Ort kopiert ist
+
 
 
 \newpage

@@ -114,8 +114,75 @@ Funktion restructure(x):
     \item \textbf{Output:} restrukturierter Baum T, mit rotierten Knoten (Single oder Double) x, y und z
 \end{itemize}
 
-\subsubsection{Ablauf}
+
+
+\subsection{Löschen}
+\begin{itemize}
+    \item beginnt wie im binären Suchbaum
+    \item Eltern-Knoten kann jetzt Balance aus dem Gleichgewicht bringen
+\end{itemize}
+\subsubsection{Balancierung nach löschen}
+\begin{itemize}
+    \item z = erste unbalancierte Knoten
+    \item y = Kind von z mit der grösseren Höhe
+    \item x = das Kind von y mit der grösseren Höhe
+    \item Aufruf von restructure(x) um die Balance von z herzustellen
+    \item Umstrukturierung kann eine neue Unbalance hervorrufen
+    \item Balance weiter geprüft werden bis die Wurzel von T erreicht ist
+\end{itemize}
+\begin{center}
+    \includegraphics[scale=.2]{graphic/02 AVLTrees/Balancierung nach dem Löschen.png}
+\end{center}
+\begin{lstlisting}
+private boolean isBalanced(Position p) {
+    int bf=height(T.leftChild(p))- height(T.rightChild(p));
+    return ((-1 <= bf) && (bf <= 1));}
+\end{lstlisting}
+
+\paragraph{AVL-Baum Rotation}
+Vorgehen:
 \begin{enumerate}
+    \item Höhe des Baumes bestimmen
+\end{enumerate}
+Formel: Höhe(links) - Höhe(rechts)\\
++1 falls links eines mehr\\
+-1 falls rechts eines mehr
+\begin{center}
+    \includegraphics[scale=0.3]{graphic/02 AVLTrees/höhe.png}
+\end{center}
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item z, x, y (c, b, a) bestimmen\\
+    z wie z'oberst, dann y, x\\
+    a, b, c inorder $\rightarrow$ links nach rechts
+    \item Falls a, b, c nicht in Reihe:
+\end{enumerate}
+\begin{center}
+    \includegraphics[width=\linewidth]{graphic/02 AVLTrees/doppel_rot.png}
+\end{center}
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item Dann: Single Rotation
+\end{enumerate}
+\begin{center}
+    \includegraphics[width=\linewidth]{graphic/02 AVLTrees/single_rot.png}
+\end{center}
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \item Start wieder bei 1.
+\end{enumerate}
+
+
+
+
+\vfill
+$ $
+\columnbreak
+
+\paragraph{AVL-Baum Cut/Link}
+Vorgehen:
+\begin{enumerate}
+    \item Höhe des Baumes bestimmen
     \item In 7 Teile aufteilen (In-Order Traversierung)
     \item nenne Knoten um (a, b, c: gemäss In-Order)
 \end{enumerate}
@@ -181,33 +248,8 @@ Funktion restructure(x):
 \end{enumerate}
 \vspace{-8pt}
 \begin{center}
-    \includegraphics[scale=.2]{graphic/02 AVLTrees/Cut-Link7.png}
+    \includegraphics[scale=.3]{graphic/02 AVLTrees/Cut-Link7.png}
 \end{center}
 \vspace{-8pt}
-
-
-\subsection{Löschen}
-\begin{itemize}
-    \item beginnt wie im binären Suchbaum
-    \item Eltern-Knoten kann jetzt Balance aus dem Gleichgewicht bringen
-\end{itemize}
-\subsubsection{Balancierung nach löschen}
-\begin{itemize}
-    \item z = erste unbalancierte Knoten
-    \item y = Kind von z mit der grösseren Höhe
-    \item x = das Kind von y mit der grösseren Höhe
-    \item Aufruf von restructure(x) um die Balance von z herzustellen
-    \item Umstrukturierung kann eine neue Unbalance hervorrufen
-    \item Balance weiter geprüft werden bis die Wurzel von T erreicht ist
-\end{itemize}
-\begin{center}
-    \includegraphics[scale=.2]{graphic/02 AVLTrees/Balancierung nach dem Löschen.png}
-\end{center}
-\begin{lstlisting}
-private boolean isBalanced(Position p) {
-    int bf=height(T.leftChild(p))- height(T.rightChild(p));
-    return ((-1 <= bf) && (bf <= 1));}
-\end{lstlisting}
-
 
 \newpage

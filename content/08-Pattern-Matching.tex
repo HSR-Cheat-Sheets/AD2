@@ -96,6 +96,34 @@ Diese bildet $\Sigma$ auf Integers ab, wobei L(c) wie folgt definiert ist:
     \end{itemize}
 \end{itemize}
 
+\paragraph{Boyer-Moore Algorithmus}
+
+\textbf{1. "Last-Occurrence" - Funktion L(c) bestimmen}\\
+
+\textbf{Spalte c:} Alle Buchstaben, die im Text vorkommen\\
+\textbf{Spalte L(c):} falls im Pattern: letzte Position\\ 
+\textbf{Spalte L(c):} falls nicht im Pattern: -1 \\
+
+\textbf{2. Vergleichen}\\
+Immer der hinterste Buchstaben des Patterns wird mit Text verglichen!\\
+
+\textbf{3. Missmatch}\\
+\begin{tabular}[]{p{2cm} p{3.8cm}}
+    Buchstabe im Text & Ausrichten auf letztes Element\\
+                      & bei negativer Verschiebung $\rightarrow$ 1 nach rechts\\
+    \hline
+    Buchstabe kommt \underline{nicht} im Text vor & Verschieben um ganze Patternlänge
+\end{tabular}
+
+\vfill
+$ $
+\columnbreak
+
+
+
+
+
+
 
 
 
@@ -109,7 +137,7 @@ Diese bildet $\Sigma$ auf Integers ab, wobei L(c) wie folgt definiert ist:
 \end{itemize}
 \vspace{-8pt}
 \begin{center}
-    \includegraphics[scale=.22]{graphic/08 PatternMatching/KMP def.png}
+    \includegraphics[scale=.2]{graphic/08 PatternMatching/KMP def.png}
 \end{center}
 \vspace{-8pt}
 \subsubsection{Laufzeit}
@@ -124,7 +152,7 @@ Diese bildet $\Sigma$ auf Integers ab, wobei L(c) wie folgt definiert ist:
 \end{itemize}
 \vspace{-8pt}
 \begin{center}
-    \includegraphics[scale=.22]{graphic/08 PatternMatching/KMP Fehl.png}
+    \includegraphics[scale=.2]{graphic/08 PatternMatching/KMP Fehl.png}
 \end{center}
 \vspace{-8pt}
 \begin{lstlisting}
@@ -182,6 +210,29 @@ Algorithm KMPMatch(T, P)
 \end{center}
 \vspace{-8pt}
 
+\paragraph{Knuth-Morris-Pratt (KMP)}
+\textbf{1. KMP Fehl-Funktion F(j) bestimmen}\\
 
+\textbf{Spalte P(j):} Pattern selbst\\
+\textbf{Spalte F(j):} Maximale Ränder Länge
+\begin{center}
+    \includegraphics[scale=.2]{graphic/08 PatternMatching/KMP Fehl3.png}
+\end{center}
+
+\textbf{2. Vergleichen}\\
+Immer der vordeste Buchstaben des Patterns wird mit Text verglichen!\\
+
+\textbf{3. Missmatch}
+\begin{center}
+    \begin{tabular}[]{p{2cm} p{4cm}}
+        Fehler ist 1. Buchstabe        & Verschiebung um 1 nach rechts\\
+        \hline
+         Fehler ist \underline{nicht} 1. Buchstabe & Fehlgeschlagener (Pattern-) Buchstabe im F(j) suchen\\
+                & An Position F(j-1) verschieben (direkt unten) 
+    \end{tabular}
+\end{center}
+
+\vfill
+$ $
 
 \newpage

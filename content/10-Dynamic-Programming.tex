@@ -119,7 +119,77 @@ Algorithmus LCS(X,Y):
 
 \subsubsection{Auslesen der LCS}
 \begin{center}
-    \includegraphics[scale=.2]{graphic/10 DynamicProgramming/Auslesen der LCS.png}
+    \includegraphics[scale=.27]{graphic/10 DynamicProgramming/Auslesen der LCS.png}
 \end{center}
+
+\vfill
+$ $
+\columnbreak
+\paragraph{Rucksack Problem}
+
+Oberste Spalte: Gewichte möglich\\
+linke Zeile: Gegenstand mit Wert und seinem Gewicht\\
+Einfüllen: Maximaler Wert bei Gewicht\\
+
+\textbf{1. Einfüllen}\\
+\begin{enumerate}
+    \item Start bei kleinstem Gewicht
+    \item Ganze Zeile (vertikal) einfüllen
+    \item Ganze Spalte (horizontal) einfüllen
+    \item Gewicht um 1 erhöhen
+    \item Ab Schritt 1.2 wiederholen
+\end{enumerate}
+$ $
+
+\textbf{2. Maximaler Wert}\\
+Der maximale Wert steht unten rechts in der Tabelle.\\
+
+\textbf{3. Pfad einzeichnen}\\
+\begin{enumerate}
+    \item Unten rechts starten
+    \item Ändert sich der Wert zum vorherigen (oben), so wird der Gegenstand verwendet
+    \item Gesammtgewicht - Gewicht des verwendeten Gegenstands
+    \item Zeile mit Restgewicht anschauen
+    \item Ab Schritt 3.2 wiederholen
+\end{enumerate}
+\begin{center}
+    \includegraphics[scale=0.25]{graphic/10 DynamicProgramming/pfad.png}
+\end{center}
+
+
+\vfill
+$ $
+\columnbreak
+\paragraph{LCS (Longest Common Subsequence)}
+
+\textbf{1. Tabelle vorbereiten}\\
+Siehe Abbildung
+
+\textbf{2. Einfüllen}\\
+\begin{enumerate}
+    \item 0-en einfüllen bei -1 Zeile und Spalte
+    \item Start dann oben links
+    \item Ist der Buchstaben in beiden Strings?
+    \item Falls ja: Addiere zum Wert diagonal links + 1
+    \item Falls nein: nimm Grösseren Wert oben oder links davon
+    \item Rücke eines nach rechts
+    \item Falls am Ende, nächste Spalte
+\end{enumerate}
+$ $
+
+\textbf{2. Maximaler Wert}\\
+Die LCS steht unten rechts in der Tabelle.\\
+
+\textbf{3. Pfad einzeichnen}\\
+\begin{enumerate}
+    \item Start unten rechts
+    \item Soweit nach links oder oben fahren, bis Zahl auf linker und oberer Seite anders
+    \item Diagonal links eins hoch
+    \item Schritt 3.1 wiederholen
+\end{enumerate}
+\begin{center}
+    \includegraphics[scale=0.2]{graphic/10 DynamicProgramming/lcs.png}
+\end{center}
+
 
 \newpage
